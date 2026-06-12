@@ -1,0 +1,219 @@
+/* 기본 스타일 초기화 및 배경색 설정 */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-weight: 300;
+    background-color: #f2f1ed; /* 가이드 컷의 은은한 미색 배경 반영 */
+    color: #000000;
+    line-height: 1.5;
+    letter-spacing: -2%;
+}
+
+/* 전체 레이아웃 분할 구조 (데스크톱 기본) */
+.page-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* ==========================================================================
+   좌측 사이드바 (사이드 대형 타이틀 영역)
+   ========================================================================== */
+.sidebar {
+    width: 35%;
+    padding: 60px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    border-right: 1px solid #000000;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.main-title {
+    font-size: 4.5rem;
+    font-weight: 500;
+    line-height: 1.1;
+    margin-bottom: 40px;
+}
+
+.project-meta {
+    margin-top: 20px;
+    font-size: 1.1rem;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+.project-meta p {
+    margin-bottom: 8px;
+}
+
+/* ==========================================================================
+   우측 메인 콘텐츠 영역
+   ========================================================================== */
+.content-area {
+    width: 65%;
+    padding: 40px 50px;
+}
+
+/* 공통 콘텐츠 섹션 */
+.content-section {
+    margin-bottom: 80px;
+}
+
+.section-title {
+    font-size: 2.2rem;
+    font-weight: 500;
+    margin-bottom: 25px;
+}
+
+/* 이미지 다루기 기본 */
+.full-img, .grid-img, .final-grid video {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+.single-image-wrapper {
+    margin-bottom: 20px;
+}
+
+/* 텍스트 배치 및 설명 구문 */
+.text-block {
+    margin-top: 15px;
+    max-width: 800px;
+}
+
+.caption {
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.description {
+    font-size: 1.05rem;
+    color: #222222;
+}
+
+/* Ideas 섹션 레이아웃 (데스크톱 기준 가로 분할) */
+.ideas-layout {
+    display: flex;
+    gap: 40px;
+}
+
+.ideas-image {
+    flex: 1;
+}
+
+.ideas-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.interview-item {
+    margin-bottom: 30px;
+}
+
+.interview-item h4 {
+    font-size: 1.1rem;
+    font-weight: 300;
+    margin-bottom: 15px;
+}
+
+.interview-item p {
+    font-size: 1rem;
+    color: #222222;
+    padding-left: 10px;
+}
+
+/* Final Result 그리드 시스템 (데스크톱: 2x2) */
+.final-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.final-summary {
+    margin-top: 40px;
+    max-width: 850px;
+}
+
+.final-summary + .final-grid {
+    margin-top: 40px;
+}
+
+.final-summary p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+/* ==========================================================================
+   반응형 미디어 쿼리 (태블릿 & 모바일 해상도 대응)
+   ========================================================================== */
+
+/* 1. 태블릿 규격 이하 (1024px 이하) */
+@media (max-width: 1024px) {
+    .page-container {
+        flex-direction: column; /* 세로형 단일 흐름으로 전환 */
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #000000;
+        padding: 40px 30px;
+    }
+
+    .main-title {
+        font-size: 3.5rem;
+        margin-bottom: 20px;
+    }
+
+    .content-area {
+        width: 100%;
+        padding: 40px 30px;
+    }
+
+    .ideas-layout {
+        flex-direction: column; /* 아이디어 구조를 세로 한 줄 배치 */
+        gap: 25px;
+    }
+
+    .final-grid {
+        grid-template-columns: 1fr; /* 2x2 그리드를 세로 1열로 변경 */
+        gap: 25px;
+    }
+}
+
+/* 2. 모바일 규격 (600px 이하 소형 화면) */
+@media (max-width: 600px) {
+    .main-title {
+        font-size: 4rem; /* 모바일 시안 특유의 대형 타이틀 비율 적용 */
+        line-height: 1.05;
+    }
+    
+    .section-title {
+        font-size: 1.8rem;
+    }
+    
+    .sidebar {
+        padding: 40px 20px;
+    }
+
+    .content-area {
+        padding: 30px 20px;
+    }
+}
